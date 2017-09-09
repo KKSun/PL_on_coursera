@@ -9,7 +9,7 @@ fun is_older (date1 : int*int*int , date2 : int*int*int ) =
 	  if ( #3 date1 >= #3 date2 ) then false
 	  else true
 *)
-								     
+(*2&3 done							     
 fun number_in_month ( date_list : (int*int*int) list , month : int ) =
   if null date_list
   then 0
@@ -26,7 +26,26 @@ fun number_in_months ( date_list : (int*int*int) list , months : int list ) =
   if null months
   then 0
   else ( number_in_month(date_list, hd months) + number_in_months(date_list, tl months))
-	  
+*)	   
+(* 4&5 done
+fun dates_in_month ( date_list : (int*int*int) list , month : int ) =
+  if null date_list
+  then []
+  else
+      let
+	  val rest_date_list = dates_in_month((tl  date_list) , month )
+      in
+	  if (#2 (hd date_list)) = month
+	  then (hd date_list)::rest_date_list
+	  else rest_date_list
+      end
+
+fun dates_in_months ( date_list : (int*int*int) list , months : int list ) =
+  if null months
+  then []
+  else (dates_in_month(date_list,(hd months))) @ (dates_in_months(date_list,(tl months)))
+	      
+*)	   
 (*6/7 done
 
 fun get_nth( l : string list , num : int ) =
